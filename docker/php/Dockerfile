@@ -11,6 +11,10 @@ RUN apt-get update && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* && \
   docker-php-ext-install intl pdo_mysql zip bcmath
+#nodeインストール
+RUN curl -sL https://deb.nodesource.com/setup_11.x | bash -
+RUN apt-get install -y nodejs
+RUN npm install npm@latest -g
 
 COPY ./php.ini /usr/local/etc/php/php.ini
 
